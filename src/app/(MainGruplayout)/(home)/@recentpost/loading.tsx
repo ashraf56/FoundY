@@ -1,26 +1,19 @@
+import CardSkeleton from "@/src/components/UI/CardSkeleton";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
-import Card from "@/src/components/UI/Card";
-import { getALLpost } from "@/src/Service/Recentpost";
 
-const page = async() => {
-  const {data} = await getALLpost() 
-
+const Loading = () => {
     return (
-        <div>
-         <div className="section-title my-8">
+        <>
+        <div className="section-title my-8">
         <h2 className="mb-2 text-center text-2xl">Recently Found Items</h2>
         <p className="text-center">
           A list of items that have been recently found and reported.
         </p>
       </div>
       <div className="my-8 grid justify-center gap-10 sm:grid-cols-1 md:grid-cols-3">
-        {/* Old Code */}
-        {/* {posts.map((post) => (
-          <p>{post.title}</p>
-        ))} */}
-        {data.map((post: any) => (
-          <Card key={post?._id} post={post} />
+        {[...Array(3)].map(() => (
+          <CardSkeleton />
         ))}
       </div>
       <div className="flex justify-center">
@@ -28,8 +21,10 @@ const page = async() => {
           <Link href="/found-items">See All</Link>
         </Button>
       </div>
-        </div>
-    );
-};
+        </>
 
-export default page;
+    )
+  };
+  
+  export default Loading;
+  
