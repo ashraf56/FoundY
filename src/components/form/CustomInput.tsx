@@ -1,3 +1,4 @@
+'use client'
 import { Input } from '@nextui-org/input';
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -24,10 +25,11 @@ const CustomInput = ({
 
 const { register , formState: { errors }}=useFormContext()
 
+
     return (
         <Input
       {...register(name)}
-      errorMessage={errors[name] ? (errors[name].message as string) : ""}
+      errorMessage={errors[name] ? (errors[name].message as string) : ''}
       isInvalid={!!errors[name]}
       label={label}
       required={required}
