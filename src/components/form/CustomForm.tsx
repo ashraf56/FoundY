@@ -13,8 +13,8 @@ interface IProps extends formConfig {
 
 
 const CustomForm = ({ children, onSubmit, resolver }: IProps) => {
-    const methods = useForm()
     const formConfig: formConfig = {}
+    const methods = useForm(formConfig)
 
     if (!!resolver) {
         formConfig["resolver"] = resolver;
