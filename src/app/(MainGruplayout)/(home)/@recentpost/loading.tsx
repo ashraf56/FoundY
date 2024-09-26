@@ -1,6 +1,7 @@
-import CardSkeleton from "@/src/components/UI/CardSkeleton";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
+
+import CardSkeleton from "@/src/components/UI/CardSkeleton";
 
 const Loading = () => {
     return (
@@ -13,6 +14,7 @@ const Loading = () => {
       </div>
       <div className="my-8 grid justify-center gap-10 sm:grid-cols-1 md:grid-cols-3">
         {[...Array(3)].map(() => (
+          // eslint-disable-next-line react/jsx-key
           <CardSkeleton />
         ))}
       </div>
